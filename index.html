@@ -24,16 +24,18 @@
       <div class="small-6 columns">
         <input type="text" ng-model="multiplier" />
       </div>
-
+      
       <div class="small-6 columns">
         <span ng-if="multiplier==1">
-            {{primaryName}} =
+            {{primaryName}}
+            =
             {{value}}
             {{compareName}}
           </span>
 
         <span ng-if="multiplier!=1">
-            {{primaryName}} =
+            {{primaryName}}
+            =
             {{value*multiplier}}
             {{compareName}}
           </span>
