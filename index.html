@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link data-require="foundation@5.0.0" data-semver="5.0.0" rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.0.0/css/normalize.css" />
+  <link data-require="foundation@5.0.0" data-semver="5.0.0" rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.0.0/css/foundation.css" />
+  <link data-require="foundation@5.0.0" data-semver="5.0.0" rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.0.0/css/foundation.min.css" />
+  <script data-require="foundation@5.0.0" data-semver="5.0.0" src="//cdn.jsdelivr.net/foundation/5.0.0/js/foundation/foundation.js"></script>
+  <script data-require="foundation@5.0.0" data-semver="5.0.0" src="//cdn.jsdelivr.net/foundation/5.0.0/js/foundation.min.js"></script>
+  <script data-require="angular.js@*" data-semver="1.2.5" src="http://code.angularjs.org/1.2.5/angular.js"></script>
+  <link rel="stylesheet" href="so.css" />
+  <script src="such.js"></script>
+</head>
+
+<body ng-app="wowSuch">
+
+  <div ng-controller="dogeController" class="row">
+  <h3>
+
+    <div ng-if="!value" class="very-loading small-4 small-centered columns"></div>
+
+    <div ng-if="value">
+      
+      <div class="small-6 columns">
+        <input type="text" ng-model="multiplier" />
+      </div>
+
+      <div class="small-6 columns">
+        <span ng-if="multiplier==1">
+            {{primaryName}} =
+            {{value}}
+            {{compareName}}
+          </span>
+
+        <span ng-if="multiplier!=1">
+            {{primaryName}} =
+            {{value*multiplier}}
+            {{compareName}}
+          </span>
+      </div>
+
+      </div>
+      
+    </div>
+  </h3>  
+  </div>
+
+</body>
+
+</html>
