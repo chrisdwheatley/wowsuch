@@ -3,13 +3,12 @@
 angular.module('wowSuch', []);
 
 angular.module('wowSuch').controller('dogeController', function($scope, dogeData) {
+  
+  $scope.multiplier = 1;
+  
   dogeData.success(function(data) {
     var doge = data.return.markets.DOGE;
-    $scope.multiplier = 1;
     $scope.value = doge.lasttradeprice;
-    $scope.compareValue = $scope.value*$scope.multiplier;
-    $scope.primaryName = doge.primaryname;
-    $scope.compareName = doge.secondaryname;
   });
 });
 
