@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('publish', ['shell:clean', 'shell:build', 'gh-pages']);
+  grunt.registerTask('deploy', ['shell:clean', 'shell:build', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-gh-pages');
