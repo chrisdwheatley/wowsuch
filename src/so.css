@@ -20,8 +20,8 @@ input.much-input {
   text-align: right;
 }
 .such-fade {
-  animation: fadein 1.5s;
-  -webkit-animation: fadein 1.5s;
+  animation: fadein 2s;
+  -webkit-animation: fadein 2s;
 }
 @keyframes fadein {
   from {
