@@ -8,9 +8,6 @@ module.exports = function(grunt) {
       },
       clean: {
         command: 'rm -rf build'
-      },
-      build: {
-        command: 'mkdir build && touch index.html'
       }
     },
 
@@ -34,8 +31,8 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', ['shell:clean', 'shell:build', 'inline']);
-  grunt.registerTask('deploy', ['shell:clean', 'shell:build', 'inline', 'gh-pages']);
+  grunt.registerTask('build', ['shell:clean', 'inline']);
+  grunt.registerTask('deploy', ['shell:clean', 'inline', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-inline');
