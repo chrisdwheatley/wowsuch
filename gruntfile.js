@@ -10,7 +10,18 @@ module.exports = function(grunt) {
         command: 'rm -rf build'
       },
       build: {
-        command: 'cp -r src build'
+        command: 'mkdir build && touch index.html'
+      }
+    },
+
+    inline: {
+      dist: {
+        options: {
+          cssmin: true,
+          uglify: true
+        },
+        src: ['src/index.html'],
+        dest: ['build/index.html']
       }
     },
 
@@ -23,9 +34,11 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('deploy', ['shell:clean', 'shell:build', 'gh-pages']);
+  grunt.registerTask('build', ['shell:clean', 'shell:build', 'inline']);
+  grunt.registerTask('deploy', ['shell:clean', 'shell:build', 'inline', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-inline');
   grunt.loadNpmTasks('grunt-gh-pages');
 
 };
