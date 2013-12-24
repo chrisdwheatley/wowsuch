@@ -8,17 +8,19 @@ module.exports = function(grunt) {
       },
       clean: {
         command: 'rm -rf build'
+      },
+      image: {
+        command: 'cp -r src/img build/img'
       }
     },
 
     inline: {
-      dist: {
+      html: {
         options: {
-          cssmin: true,
           uglify: true
         },
         src: ['src/index.html'],
-        dest: ['build/index.html']
+        dest: ['build/']
       }
     },
 
@@ -31,8 +33,8 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', ['shell:clean', 'inline']);
-  grunt.registerTask('deploy', ['shell:clean', 'inline', 'gh-pages']);
+  grunt.registerTask('build', ['shell:clean', 'inline', 'shell:image']);
+  grunt.registerTask('deploy', ['shell:clean', 'inline', 'shell:image', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-inline');
