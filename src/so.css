@@ -19,23 +19,23 @@ input.much-input {
 .very-value {
   text-align: right;
 }
-.such-fade {
-  -webkit-animation: fadein 2s;
-  animation: fadein 2s;
-}
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+/*.such-fade {*/
+/*  -webkit-animation: fadein 2s;*/
+/*  animation: fadein 2s;*/
+/*}*/
+/*@-webkit-keyframes fadein {*/
+/*  from {*/
+/*    opacity: 0;*/
+/*  }*/
+/*  to {*/
+/*    opacity: 1;*/
+/*  }*/
+/*}*/
+/*@keyframes fadein {*/
+/*  from {*/
+/*    opacity: 0;*/
+/*  }*/
+/*  to {*/
+/*    opacity: 1;*/
+/*  }*/
+/*}*/
