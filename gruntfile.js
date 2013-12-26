@@ -22,6 +22,14 @@ module.exports = function(grunt) {
       }
     },
 
+    uglify: {
+      combine: {
+        files: {
+          'build/such-prod.js': ['src/such.js']
+        }
+      }
+    },
+
     'gh-pages': {
       options: {
         base: 'build'
@@ -31,11 +39,12 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', ['shell:clean', 'shell:build', 'cssmin']);
+  grunt.registerTask('build', ['shell:clean', 'shell:build', 'cssmin', 'uglify']);
   grunt.registerTask('deploy', ['build', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-gh-pages');
 
 };
