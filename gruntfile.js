@@ -14,14 +14,9 @@ module.exports = function(grunt) {
       }
     },
 
-    inline: {
-      dist: {
-          options:{
-              cssmin: true,
-              uglify: true
-          },
-          src: ['src/index.html'],
-          dest: ['build/']
+    dogescript: {
+      build: {
+        src: ['build/such.djs']
       }
     },
 
@@ -34,11 +29,11 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', ['shell:clean', 'shell:build', 'inline']);
+  grunt.registerTask('build', ['shell:clean', 'shell:build', 'dogescript']);
   grunt.registerTask('deploy', ['build', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-inline');
+  grunt.loadNpmTasks('grunt-dogescript');
   grunt.loadNpmTasks('grunt-gh-pages');
 
 };
