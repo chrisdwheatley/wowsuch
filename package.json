@@ -7,6 +7,7 @@
     "grunt-shell": "~0.6.1",
     "grunt-cli": "~0.1.11",
     "grunt-inline": "~0.2.0",
-    "grunt-dogescript": "~0.3.0"
+    "grunt-dogescript": "~0.3.0",
+    "grunt-contrib-cssmin": "~0.7.0"
   }
 }
