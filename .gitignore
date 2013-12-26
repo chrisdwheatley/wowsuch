@@ -3,4 +3,3 @@ build
 .grunt
 *.sublime-project
 *.sublime-workspace
-*.prod.*
