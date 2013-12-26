@@ -3,9 +3,7 @@
 angular.module('wowSuch', []);
 
 angular.module('wowSuch').controller('dogeController', ['$scope', 'dogeData', function($scope, dogeData) {
-  
   $scope.multiplier = 1;
-  
   dogeData.success(function(data) {
     var doge = data.return.markets.DOGE;
     $scope.value = doge.lasttradeprice;
