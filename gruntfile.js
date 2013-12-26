@@ -14,28 +14,15 @@ module.exports = function(grunt) {
       }
     },
 
-    cssmin: {
-      combine: {
-        files: {
-          'src/so.prod.css': ['src/foundation.min.css', 'src/so.css']
-        }
+    inline: {
+      dist: {
+          options:{
+              cssmin: true,
+              uglify: true
+          },
+          src: ['src/index.html'],
+          dest: ['build/']
       }
-    },
-
-    uglify: {
-      combine: {
-        files: {
-          'src/such.prod.js': ['src/such.js']
-        }
-      }
-    },
-
-    smoosher: {
-      build: {
-        files: {
-          'build/index.html': 'src/index.html',
-        },
-      },
     },
 
     'gh-pages': {
@@ -47,13 +34,11 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', ['shell:clean', 'shell:build', 'cssmin', 'uglify', 'smoosher']);
+  grunt.registerTask('build', ['shell:clean', 'shell:build', 'inline']);
   grunt.registerTask('deploy', ['build', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-html-smoosher');
+  grunt.loadNpmTasks('grunt-inline');
   grunt.loadNpmTasks('grunt-gh-pages');
 
 };
