@@ -6,8 +6,8 @@ body {
   background-position: center;
   font-weight: bold;
 }
-.very-row, .such-me {
-  margin-top: 5em;
+.very-row {
+  margin-top: 6em;
 }
 input.much-input {
   width:50%;
@@ -16,7 +16,7 @@ input.much-input {
 .so-equals {
   text-align: center;
 }
-.very-value {
+.very-value, .so-tweets {
   text-align: right;
 }
 .such-fade {
