@@ -7,13 +7,13 @@ body {
   font-weight: bold;
 }
 .very-row {
-  margin-top: 6em;
+  margin-top: 3em;
 }
 input.much-input {
   width:50%;
   float:right;
 }
-.so-equals {
+.so-centered {
   text-align: center;
 }
 .very-value, .so-tweets {
