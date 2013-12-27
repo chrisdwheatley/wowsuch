@@ -1,7 +1,6 @@
 node_modules
 build
 .tmp
-dist
 .grunt
 *.sublime-project
 *.sublime-workspace

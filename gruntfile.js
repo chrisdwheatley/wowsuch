@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         stdout: true
       },
       clean: {
-        command: 'rm -rf build'
+        command: 'rm -rf build .tmp'
       },
       build: {
         command: 'cp -r src build'
@@ -20,30 +20,15 @@ module.exports = function(grunt) {
       }
     },
 
-    cssmin: {
-      combine: {
-        files: {
-          'build/doge.min.css': ['build/foundation.min.css', 'build/so.css']
-        }
-      }
-    },
-
-    uglify: {
-      prod: {
-        files: {
-          'build/tmp.js': ['build/such.js', 'build/very.js']
-        }
-      }
-    },
-
-    concat: {
+    useminPrepare: {
       options: {
-        separator: ';',
+        dest: 'build'
       },
-      build: {
-        src: ['build/angular.min.js', 'build/tmp.js'],
-        dest: 'build/doge.min.js',
-      }
+      html: ['build/index.html']
+    },
+
+    usemin: {
+      html: ['build/index.html']
     },
 
     rev: {
@@ -57,14 +42,6 @@ module.exports = function(grunt) {
       }
     },
 
-    useminPrepare: {
-      html: ['build/index.html']
-    },
-
-    usemin: {
-      html: ['build/index.html']
-    },
-
     'gh-pages': {
       options: {
         base: 'build'
@@ -74,7 +51,7 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', ['shell:clean', 'shell:build', 'useminPrepare', 'dogescript', 'cssmin', 'uglify', 'concat', 'rev', 'usemin']);
+  grunt.registerTask('build', ['shell:clean', 'shell:build', 'dogescript', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'rev', 'usemin']);
   grunt.registerTask('deploy', ['build', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
