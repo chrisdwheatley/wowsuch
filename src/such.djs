@@ -1,3 +1,5 @@
+shh such.js is generated from such.djs
+
 trained
 
 plz angular.module with 'wowSuch', []

@@ -14,9 +14,22 @@ module.exports = function(grunt) {
       }
     },
 
+    watch: {
+      scripts: {
+        files: 'src/*.djs',
+        tasks: ['dogescript:dev'],
+        options: {
+          spawn: false
+        },
+      },
+    },
+
     dogescript: {
       build: {
         src: ['build/such.djs']
+      },
+      dev: {
+        src: ['src/such.djs']
       }
     },
 
@@ -51,10 +64,11 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', ['shell:clean', 'shell:build', 'dogescript', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'rev', 'usemin']);
+  grunt.registerTask('build', ['shell:clean', 'shell:build', 'dogescript:build', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'rev', 'usemin']);
   grunt.registerTask('deploy', ['build', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-dogescript');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
