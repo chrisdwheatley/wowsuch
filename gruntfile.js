@@ -40,10 +40,29 @@ module.exports = function(grunt) {
       options: {
         separator: ';',
       },
-      dist: {
+      build: {
         src: ['build/angular.min.js', 'build/tmp.js'],
         dest: 'build/doge.min.js',
       }
+    },
+
+    rev: {
+      options: {
+        encoding: 'utf8',
+        algorithm: 'md5',
+        length: 8
+      },
+      files: {
+        src: ['build/doge.min.{js,css,png,jpg}']
+      }
+    },
+
+    useminPrepare: {
+      html: ['build/index.html']
+    },
+
+    usemin: {
+      html: ['build/index.html']
     },
 
     'gh-pages': {
@@ -55,7 +74,7 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', ['shell:clean', 'shell:build', 'dogescript', 'cssmin', 'uglify', 'concat']);
+  grunt.registerTask('build', ['shell:clean', 'shell:build', 'useminPrepare', 'dogescript', 'cssmin', 'uglify', 'concat', 'rev', 'usemin']);
   grunt.registerTask('deploy', ['build', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
@@ -63,6 +82,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-rev');
+  grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-gh-pages');
 
 };

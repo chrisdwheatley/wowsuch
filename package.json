@@ -9,6 +9,8 @@
     "grunt-dogescript": "~0.3.0",
     "grunt-contrib-cssmin": "~0.7.0",
     "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-rev": "~0.1.0",
+    "grunt-usemin": "~2.0.2"
   }
 }
