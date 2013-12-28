@@ -17,7 +17,7 @@ wow
 
 plz angular.module with 'wowSuch'&
   dose factory with 'dogeData', ['$http' much $http
-    very dogeUrl is 'https://lit-beach-8985.herokuapp.com/?callback=soCallback&url=http%3A%2F%2Fpubapi.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132&callback=JSON_CALLBACK'
+    very dogeUrl is 'https://jsonp.nodejitsu.com/?callback=soCallback&url=http%3A%2F%2Fpubapi.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132&callback=JSON_CALLBACK'
     wow $http.jsonp(dogeUrl)
 ]);
 
