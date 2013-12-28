@@ -33,6 +33,17 @@ module.exports = function(grunt) {
       }
     },
 
+    replace: {
+      canonical: {
+        src: ['build/index.html'],
+        overwrite: true,
+        replacements: [{
+          from: '<!-- canonical -->',
+          to: '<link rel="canonical" href="http://wowsuch.io" />'
+        }]
+      }
+    },
+
     useminPrepare: {
       options: {
         dest: 'build'
@@ -64,10 +75,11 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', ['shell:clean', 'shell:build', 'dogescript:build', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'rev', 'usemin']);
+  grunt.registerTask('build', ['shell:clean', 'shell:build', 'dogescript:build', 'replace', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'rev', 'usemin']);
   grunt.registerTask('deploy', ['build', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-text-replace');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-dogescript');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
