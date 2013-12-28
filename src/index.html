@@ -85,8 +85,29 @@
 
   <div class="row very-row">
 
-    <div class="so-centered small-12 small-centered columns">
+    <div class="small-10 small-centered columns">
+      <h4>Donations</h4>
+
       <p>Donate: DQ3isvKeGUPjz1V44wXUxQdr9pAKd96df9</p>
+
+      <table>
+        <tr>
+          <th>Donor</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+        <tr ng-repeat="donation in donations | orderBy:'-date'">
+          <td ng-if="donation.link">
+            <a href="{{donation.link}}" target="_blank">{{donation.donor}}</a>
+          </td>
+          <td ng-if="!donation.link">
+            {{donation.donor}}
+          </td>
+          <td>{{donation.amount}}</td>
+          <td>{{donation.date}}</td>
+        </tr>
+      </table>
+
     </div>
 
   </div>
