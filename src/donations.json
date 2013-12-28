@@ -1,0 +1,16 @@
+{
+    "donations": [
+        {
+            "amount": 50,
+            "donor": "/u/JonasIsAwesome",
+            "link": "http://www.reddit.com/r/dogecoin/comments/1tt9ks/ive_created_a_dogecoin_price_calculator_written/ceb7dv7",
+            "date": "Dec 27, 2013"
+        },
+        {
+            "amount": 5,
+            "donor": "anonymous",
+            "link": null,
+            "date": "Dec 28, 2013"
+        }
+    ]
+}
