@@ -12,15 +12,19 @@ plz angular.module with 'wowSuch'&
 
     very doge is data.return.markets.DOGE
 
-    $scope.dogecoinPrice is $scope.value is doge.lasttradeprice;
+    $scope.value is $scope.dogecoinPrice is doge.lasttradeprice;
 
-    $scope.multipliedValue = function(multiplier) {
-      $scope.value = multiplier * $scope.dogecoinPrice;
-    }
+    $scope.multipliedValue is such multipliedValue much multiplier
+      rly multiplier is 1
+        $scope.value is $scope.dogecoinPrice;
+      but
+        $scope.value is multiplier * $scope.dogecoinPrice;
+      wow
+    wow
 
-    $scope.dividedValue = function(value) {
-      $scope.multiplier = value / $scope.dogecoinPrice;
-    }
+    $scope.dividedValue is such dividedValue much value
+      $scope.multiplier is value / $scope.dogecoinPrice;
+    wow
 
   wow&
 ;

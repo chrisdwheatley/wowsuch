@@ -14,13 +14,17 @@ angular.module('wowSuch')
                 var doge = data.
                 return .markets.DOGE;
 
-                $scope.dogecoinPrice = $scope.value = doge.lasttradeprice;
+                $scope.value = $scope.dogecoinPrice = doge.lasttradeprice;
 
-                $scope.multipliedValue = function(multiplier) {
-                    $scope.value = multiplier * $scope.dogecoinPrice;
+                $scope.multipliedValue = function multipliedValue(multiplier) {
+                    if (multiplier === 1) {
+                        $scope.value = $scope.dogecoinPrice;
+                    } else {
+                        $scope.value = multiplier * $scope.dogecoinPrice;
+                    }
                 }
 
-                $scope.dividedValue = function(value) {
+                $scope.dividedValue = function dividedValue(value) {
                     $scope.multiplier = value / $scope.dogecoinPrice;
                 }
 
