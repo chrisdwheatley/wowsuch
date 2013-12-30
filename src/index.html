@@ -33,7 +33,7 @@
   <div class="row very-row">
 
     <div class="small-6 columns">
-      <h3><input class="much-input" ng-model="multiplier" type="tel" pattern="[0-9]{10}" autofocus /></h3>
+      <h3><input class="much-input" ng-model="multiplier" ng-change="multipliedValue()" type="tel" pattern="[0-9]{10}" autofocus /></h3>
     </div>
 
     <div class="small-6 columns">
@@ -51,9 +51,11 @@
   <div class="row">
 
     <div ng-if="multiplier==1">
-      <div ng-if="!value" class="small-6 columns"></div>
-      <div ng-if="value" class="such-fade very-value small-6 columns">
-        <h3>{{value | number:8}}</h3>
+      <div ng-if="!value" class="very-value small-6 columns">
+        <h3><input class="much-input" type="tel" /></h3>
+      </div>
+      <div ng-if="value" class="very-value small-6 columns">
+        <h3><input class="much-input" ng-model="value" type="tel" pattern="[0-9]{10}" /></h3>
       </div>
       <div class="small-6 columns">
         <h3>Bitcoin</h3>
@@ -62,7 +64,7 @@
 
     <div ng-if="multiplier!=1">
       <div class="very-value small-6 columns" >
-        <h3>{{value*multiplier | number:8}}</h3>
+        <h3><input class="much-input" ng-model="multiplied" type="tel" pattern="[0-9]{10}" /></h3>
       </div>
       <div class="small-6 columns">
         <h3>Bitcoin</h3>

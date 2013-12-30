@@ -12,6 +12,10 @@ angular.module('wowSuch')
                 var doge = data.
                 return .markets.DOGE;
                 $scope.value = doge.lasttradeprice;
+                $scope.multipliedValue = function() {
+                    $scope.multiplied = $scope.value * $scope.multiplier;
+                }
+
             });
         }
     ]);

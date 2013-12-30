@@ -10,6 +10,10 @@ plz angular.module with 'wowSuch'&
   dogeData dose success with much data
     very doge is data.return.markets.DOGE
     $scope.value is doge.lasttradeprice;
+    $scope.multipliedValue = function() {
+      $scope.multiplied is $scope.value*$scope.multiplier;
+    }
+
   wow&
 ;
 wow
