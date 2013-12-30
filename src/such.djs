@@ -7,11 +7,19 @@ plz angular.module with 'wowSuch', []
 plz angular.module with 'wowSuch'&
   dose controller with 'dogeController', ['$scope', 'dogeData' much $scope dogeData
   $scope.multiplier is 1;
+
   dogeData dose success with much data
+
     very doge is data.return.markets.DOGE
-    $scope.value is doge.lasttradeprice;
-    $scope.multipliedValue = function() {
-      $scope.multiplied is $scope.value*$scope.multiplier;
+
+    $scope.dogecoinPrice is $scope.value is doge.lasttradeprice;
+
+    $scope.multipliedValue = function(multiplier) {
+      $scope.value = multiplier * $scope.dogecoinPrice;
+    }
+
+    $scope.dividedValue = function(value) {
+      $scope.multiplier = value / $scope.dogecoinPrice;
     }
 
   wow&

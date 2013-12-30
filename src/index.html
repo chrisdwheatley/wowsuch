@@ -14,9 +14,9 @@
   <!-- build:js doge.min.js -->
   <script src="angular.min.js"></script>
   <script src="such.js"></script>
-  <script src="very.js"></script>
+  <!--<script src="very.js"></script>-->
   <!-- endbuild -->
-  <title ng-if="value" ng-bind="value + ' - Dogecoin Price Calculator - Wow Such'">Dogecoin Price Calculator - Wow Such</title>
+  <title ng-if="dogecoinPrice" ng-bind="dogecoinPrice + ' - Dogecoin Price Calculator - Wow Such'">Dogecoin Price Calculator - Wow Such</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
   <div class="row very-row">
 
     <div class="small-6 columns">
-      <h3><input class="much-input" ng-model="multiplier" ng-change="multipliedValue()" type="tel" pattern="[0-9]{10}" autofocus /></h3>
+      <h3><input class="much-input" ng-model="multiplier" ng-change="multipliedValue(multiplier)" type="tel" pattern="[0-9]{10}" autofocus /></h3>
     </div>
 
     <div class="small-6 columns">
@@ -49,32 +49,16 @@
   </div>
 
   <div class="row">
-
-    <div ng-if="multiplier==1">
-      <div ng-if="!value" class="very-value small-6 columns">
-        <h3><input class="much-input" type="tel" /></h3>
-      </div>
-      <div ng-if="value" class="very-value small-6 columns">
-        <h3><input class="much-input" ng-model="value" type="tel" pattern="[0-9]{10}" /></h3>
-      </div>
-      <div class="small-6 columns">
-        <h3>Bitcoin</h3>
-      </div>
+    <div class="very-value small-6 columns" >
+      <h3><input class="much-input" ng-model="value" ng-change="dividedValue(value)" type="tel" pattern="[0-9]{10}" /></h3>
     </div>
 
-    <div ng-if="multiplier!=1">
-      <div class="very-value small-6 columns" >
-        <h3><input class="much-input" ng-model="multiplied" type="tel" pattern="[0-9]{10}" /></h3>
-      </div>
-      <div class="small-6 columns">
-        <h3>Bitcoin</h3>
-      </div>
+    <div class="small-6 columns">
+      <h3>Bitcoin</h3>
     </div>
-
   </div>
 
   <div class="row very-row">
-
     <div class="small-6 columns so-tweets">
       <a href="https://twitter.com/swirlycheetah" target="_blank">Twitter</a>
     </div>
@@ -82,15 +66,12 @@
     <div class="small-6 columns">
         <a href="https://github.com/swirlycheetah/wowsuch" target="_blank">Github</a>
     </div>
-
   </div>
 
   <div class="row very-row">
-
     <div class="so-centered small-12 small-centered columns">
       <h4>Donate: DQ3isvKeGUPjz1V44wXUxQdr9pAKd96df9</h4>
     </div>
-
   </div>
 
 </body>

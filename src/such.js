@@ -8,12 +8,20 @@ angular.module('wowSuch')
     .controller('dogeController', ['$scope', 'dogeData',
         function($scope, dogeData) {
             $scope.multiplier = 1;
+
             dogeData.success(function(data) {
+
                 var doge = data.
                 return .markets.DOGE;
-                $scope.value = doge.lasttradeprice;
-                $scope.multipliedValue = function() {
-                    $scope.multiplied = $scope.value * $scope.multiplier;
+
+                $scope.dogecoinPrice = $scope.value = doge.lasttradeprice;
+
+                $scope.multipliedValue = function(multiplier) {
+                    $scope.value = multiplier * $scope.dogecoinPrice;
+                }
+
+                $scope.dividedValue = function(value) {
+                    $scope.multiplier = value / $scope.dogecoinPrice;
                 }
 
             });
