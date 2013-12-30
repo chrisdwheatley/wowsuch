@@ -24,10 +24,22 @@ The project is currently in it's very early stages and is therefore likely to ch
 
 Use [this tool][3] for writing/editing dogescript.
 
+### Changelog
+
+#### v0.2.0
+
+* Allow Bitcoin to Dogecoin value calculations
+* SEO amendments and implemented sitemap
+
+#### v0.1.0
+
+* Initial release
+
 ### Roadmap
 
+* Widgets
+* Tests
 * Pull data from more than one source
-* Bitcoin to Dogecoin comparison
 * USD comparison
 * Other currencies comparison
 
