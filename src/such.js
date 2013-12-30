@@ -17,7 +17,7 @@ angular.module('wowSuch')
                 $scope.value = $scope.dogecoinPrice = doge.lasttradeprice;
 
                 $scope.multipliedValue = function multipliedValue(multiplier) {
-                    if (multiplier === 1) {
+                    if (multiplier === "1") {
                         $scope.value = $scope.dogecoinPrice;
                     } else {
                         $scope.value = multiplier * $scope.dogecoinPrice;

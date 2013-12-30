@@ -15,7 +15,7 @@ plz angular.module with 'wowSuch'&
     $scope.value is $scope.dogecoinPrice is doge.lasttradeprice;
 
     $scope.multipliedValue is such multipliedValue much multiplier
-      rly multiplier is 1
+      rly multiplier is "1"
         $scope.value is $scope.dogecoinPrice;
       but
         $scope.value is multiplier * $scope.dogecoinPrice;
