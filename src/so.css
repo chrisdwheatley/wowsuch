@@ -14,7 +14,7 @@ body {
 }
 input.much-input {
   width:66%;
-  min-width:130px;
+  min-width:95px;
   max-width:250px;
   float:right;
 }
