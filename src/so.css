@@ -13,7 +13,9 @@ body {
   margin-top: 3em;
 }
 input.much-input {
-  width:75%;
+  width:66%;
+  min-width:130px;
+  max-width:250px;
   float:right;
 }
 .so-centered {
