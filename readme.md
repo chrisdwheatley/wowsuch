@@ -47,7 +47,6 @@ Use [this tool][3] for writing/editing dogescript.
 * Widgets
 * Tests
 * Pull data from more than one source
-* USD comparison
 * Other currencies comparison
 
 ### License
