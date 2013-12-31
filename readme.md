@@ -26,12 +26,19 @@ Use [this tool][3] for writing/editing dogescript.
 
 ### Changelog
 
+#### v0.3.0
+##### 31/12/2013
+
+* Display USD conversion price
+
 #### v0.2.0
+##### 30/12/2013
 
 * Allow Bitcoin to Dogecoin value calculations
 * SEO amendments and implemented sitemap
 
 #### v0.1.0
+##### 26/12/2013
 
 * Initial release
 
