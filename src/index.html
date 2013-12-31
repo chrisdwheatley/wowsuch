@@ -15,8 +15,8 @@
   <script src="such.js"></script>
   <script src="very.js"></script>
   <!-- endbuild -->
-  <title ng-if="dogecoinPrice" ng-bind="dogecoinPrice + ' - Dogecoin Price Calculator - Wow Such'">Dogecoin Price Calculator - Compare Dogecoin value to Bitcoin - Wow Such</title>
-  <meta name="description" content="Live Dogecoin price calculator. Compare Dogecoin value to Bitcoin in real time. Get the Dogecoin exchange rate instantly. DOGE/BTC market.">
+  <title ng-if="singleDogecoinPriceInBTC" ng-bind="singleDogecoinPriceInBTC + ' - Dogecoin Price Calculator - Wow Such'">Dogecoin Price Calculator - Compare Dogecoin value to Bitcoin and USD - Wow Such</title>
+  <meta name="description" content="Live Dogecoin price calculator. Compare Dogecoin value to Bitcoin and USD in real time. Get the Dogecoin exchange rate instantly. DOGE/BTC/USD market.">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
   <div class="row very-row">
 
     <div class="small-6 columns">
-      <h3><input class="much-input" ng-model="multiplier" ng-change="multipliedValue(multiplier)" type="tel" placeholder="DOGE" autofocus /></h3>
+      <h3><input class="much-input" ng-model="numberOfDogecoinInput" ng-change="amendDogecoinInput(numberOfDogecoinInput)" type="tel" placeholder="DOGE" autofocus /></h3>
     </div>
 
     <div class="small-6 columns">
@@ -50,11 +50,27 @@
 
   <div class="row">
     <div class="very-value small-6 columns" >
-      <h3><input class="much-input" ng-model="value" ng-change="dividedValue(value)" type="tel" placeholder="BTC" /></h3>
+      <h3><input class="much-input" ng-model="numberOfBTCInput" ng-change="amendBTCInput(numberOfBTCInput)" type="tel" placeholder="BTC" /></h3>
     </div>
 
     <div class="small-6 columns">
       <h3>Bitcoin</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="so-centered small-2 small-centered columns">
+      <h2>=</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="very-value small-6 columns" >
+      <h3><input class="much-input" ng-model="numberOfUSDInput" ng-change="amendUSDInput(numberOfUSDInput)" type="tel" placeholder="USD" /></h3>
+    </div>
+
+    <div class="small-6 columns">
+      <h3>USD</h3>
     </div>
   </div>
 
