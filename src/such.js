@@ -56,7 +56,7 @@ angular.module('wowSuch')
 angular.module('wowSuch')
     .factory('usdData', ['$http',
         function($http) {
-            var dataUrl = 'https://jsonp.nodejitsu.com/?callback=soCallback&url=http://data.mtgox.com/api/1/BTCUSD/ticker_fast&callback=JSON_CALLBACK';
+            var dataUrl = 'https://lit-beach-8985.herokuapp.com/?callback=soCallback&url=http://data.mtgox.com/api/1/BTCUSD/ticker_fast&callback=JSON_CALLBACK';
             return $http.jsonp(dataUrl);
         }
     ]);
