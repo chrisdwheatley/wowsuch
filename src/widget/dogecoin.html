@@ -1,53 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="canonical" href="http://wowsuch.io" />
-  <title>Dogecoin Price Calculator - Compare Dogecoin value to Bitcoin and USD - Wow Such</title>
-  <meta name="description" content="Live Dogecoin price calculator. Compare Dogecoin value to Bitcoin and USD in real time. Get the Dogecoin exchange rate instantly. DOGE/BTC/USD market.">
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script>
-
-  var dogeApiUrl = 'https://jsonp.nodejitsu.com/?callback=?&url=http%3A%2F%2Fpubapi.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132';
-
-  $.getJSON(dogeApiUrl, function(data){
-    $("span.price").html(data.return.markets.DOGE.lasttradeprice);
-  });
-
-  function poll(){
-    $.getJSON(dogeApiUrl, function(data){
-      $("span.price").html(data.return.markets.DOGE.lasttradeprice);
-    });
-  }
-
-  setInterval(function(){ poll(); }, 5000);
-
-  </script>
-</head>
-
-<body style="position:absolute;width:294px;height:94px;padding:0px;margin:0px;color:#424242;border: solid #e6ddbe 3px;border-radius:2px;position:relative;">
-
-  <div style="background:url(http://i.imgur.com/7WUW27r.png) #F2EDE0 right center no-repeat;height:100%;">
-    <!--Medium Rectangle-->
-    <div class="btc" style="padding:10px;font-weigth:bold;font-size:40px;">Ƀ<span class="price"></span></div>
-    <p style="font-size:13px;position:absolute;bottom:10px;left:10px;margin:0;">Powered by <a href="http://wowsuch.io" target="_blank">wowsuch.io</a></p>
-  </div>
-
-  <!--<div style="background-color:red;width:160px;height:50px;margin-bottom:20px;">-->
-  <!--  Wide Skyscraper-->
-  <!--</div>-->
-
-  <!--<div style="background-color:red;width:320px;height:50px;margin-bottom:20px;">-->
-  <!--  Mobile Leaderboard-->
-  <!--</div>-->
-
-  <!--<div style="background-color:red;width:250px;height:250px;margin-bottom:20px;">-->
-  <!--  Square-->
-  <!--</div>-->
-
-</body>
-
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div id="wow-such"></div>
+		<script type="text/javascript" src="doge.js"></script>
+	</body>
 </html>
