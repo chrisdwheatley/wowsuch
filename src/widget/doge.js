@@ -1,5 +1,6 @@
 (function() {
-    // Localize jQuery variable
+
+  // Localize jQuery variable
   var jQuery;
 
   /******** Load jQuery if not present *********/
@@ -24,7 +25,8 @@
       jQuery = window.jQuery;
       main();
   }
-    /******** Called once jQuery has loaded ******/
+
+  /******** Called once jQuery has loaded ******/
   function scriptLoadHandler() {
       // Restore $ and window.jQuery to their previous values and store the
       // new jQuery in our local jQuery variable
@@ -33,7 +35,7 @@
       main();
   }
 
-    /******** Our main function ********/
+  /******** Our main function ********/
   function main() {
       jQuery(document).ready(function($) {
           /******* Load CSS *******/
@@ -44,19 +46,35 @@
           });
           css_link.appendTo('head');
 
+          var loadingMessage = '<div id="wow-such-widget-overlay"><p>Loading...</p></div>';
+
+          $('#wow-such-widget').html('<div id="wow-such-widget-inner">1 DOGE = <span id="wow-such-widget-inner-price"></span> BTC</div><div id="wow-such-widget-credit">Powered by <a href="http://wowsuch.io" target="_blank">wowsuch.io</a></div><div id="wow-such-widget-lower-bar"></div>');
+          // $("#wow-such-widget-inner").html(loadingMessage);
+
           /******* Load HTML *******/
           var dogeApiUrl = 'https://lit-beach-8985.herokuapp.com/?callback=?&url=http%3A%2F%2Fpubapi.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132';
+
           $.getJSON(dogeApiUrl, function(data){
-            $("#wow-such").html(data.return.markets.DOGE.lasttradeprice);
+            $("#wow-such-widget-inner-price").html(data.return.markets.DOGE.lasttradeprice);
+            // var div = document.getElementById("wow-such-widget-overlay");
+            // div.parentNode.removeChild(div);
           });
 
           function poll(){
             $.getJSON(dogeApiUrl, function(data){
-              $("#wow-such").html(data.return.markets.DOGE.lasttradeprice);
+
+                $("#wow-such-widget-inner-price").addClass('wow-such-widget-animate');
+                setTimeout(function(){
+                  $("#wow-such-widget-inner-price").removeClass('wow-such-widget-animate');
+                }, 2000);
+
+              $("#wow-such-widget-inner-price").html(data.return.markets.DOGE.lasttradeprice);
             });
           }
 
           setInterval(function(){ poll(); }, 5000);
+
+          // console.log(document.URL);
       });
   }
 

@@ -1,0 +1,56 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700);
+
+#wow-such-widget {
+  background-color:#FFCA61;
+  margin:0;
+  padding:0;
+  width:300px;
+  height:50px;
+  color:;#242424;
+  font-family: 'Open Sans', sans-serif;
+}
+#wow-such-widget-overlay{
+  /*height:50px;*/
+  text-align: center;
+  background-color:rgba(0, 0, 0, 0.1);
+  /*color:white;*/
+}
+#wow-such-widget-overlay p{
+  padding-top:12px;
+}
+#wow-such-widget-inner{
+  height:44px;
+  font-weight:700;
+  font-size:22px;
+  padding:2px 0 0 8px;
+}
+#wow-such-widget-credit{
+  float:right;
+  font-size:12px;
+  margin:-18px 15px 0 0;
+}
+#wow-such-widget-lower-bar{
+  height:4px;
+  background-color:#e5b457;
+}
+.wow-such-widget-animate {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@-webkit-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+@keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
