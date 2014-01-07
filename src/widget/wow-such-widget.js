@@ -42,31 +42,30 @@
       var css_link = $("<link>", {
         rel: "stylesheet",
         type: "text/css",
-        href: "wow-such-widget.css"
+        href: "widget/wow-such-widget.css"
       });
       css_link.appendTo('head');
 
-      // overlay while data is loading
-      $("#wow-such-widget").html('<div id="wow-such-widget-overlay"></div><div id="wow-such-widget-lower-bar"></div>');
-      $('#wow-such-widget-overlay').html('Loading live Dogecoin price...');
+      // widget boilerplate until data loads
+      $(".wow-such-widget").html('<div class="wow-such-widget-overlay"></div><div class="wow-such-widget-lower-bar"></div>');
 
       var dogeApiUrl = 'https://lit-beach-8985.herokuapp.com/?callback=?&url=http%3A%2F%2Fpubapi.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132';
 
-      // poll api for data, remove overlay on successful retrieval, flash on price change
+      // poll api for data and display contents of widget on retrieval, flash on price change
       function poll(){
         $.getJSON(dogeApiUrl, function(data){
           var data = data.return.markets.DOGE.lasttradeprice;
-          $("#wow-such-widget-overlay").remove();
-          $('#wow-such-widget').html('<div id="wow-such-widget-inner">1 DOGE = <span id="wow-such-widget-inner-price"></span> BTC</div><div id="wow-such-widget-credit">Powered by <a href="http://wowsuch.io/?utm_source='+ document.URL +'&utm_medium=widget&utm_campaign=wowsuchwidget" target="_blank">wowsuch.io</a></div><div id="wow-such-widget-lower-bar"></div>');
+          // $(".wow-such-widget-overlay").remove();
+          $('.wow-such-widget').html('<div class="wow-such-widget-inner">1 DOGE = <span class="wow-such-widget-inner-price"></span> BTC</div><div class="wow-such-widget-credit">Powered by <a href="http://wowsuch.io/?utm_source='+ document.URL +'&utm_medium=widget&utm_campaign=wowsuchwidget" target="_blank">wowsuch.io</a></div><div class="wow-such-widget-lower-bar"></div>');
 
             if(data !== previousValue && previousValue) {
-              $("#wow-such-widget-inner-price").addClass('wow-such-widget-animate');
+              $(".wow-such-widget-inner-price").addClass('wow-such-widget-animate');
               setTimeout(function(){
-                $("#wow-such-widget-inner-price").removeClass('wow-such-widget-animate');
+                $(".wow-such-widget-inner-price").removeClass('wow-such-widget-animate');
               }, 2000);
             };
 
-          $("#wow-such-widget-inner-price").html(data);
+          $(".wow-such-widget-inner-price").html(data);
           previousValue = data;
         });
       }
