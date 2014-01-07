@@ -33,6 +33,15 @@ module.exports = function(grunt) {
       }
     },
 
+    rewrite: {
+      link: {
+        src: ['build/**/*.html', 'build/widget/**/*.js'],
+        editor: function(contents, filePath) {
+          return contents.replace('widget/wow-such-widget', 'http://wowsuch.io/widget/wow-such-widget');
+        }
+      }
+    },
+
     useminPrepare: {
       options: {
         dest: 'build'
@@ -84,13 +93,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask('buildPrep', ['shell:clean', 'shell:build'])
   grunt.registerTask('buildSite', ['dogescript:build', 'useminPrepare', 'concat', 'uglify:generated', 'cssmin:generated', 'rev:site', 'usemin']);
-  grunt.registerTask('buildWidget', ['uglify:widget', 'cssmin:widget']);
+  grunt.registerTask('buildWidget', ['uglify:widget', 'cssmin:widget', 'rewrite']);
   grunt.registerTask('build', ['buildPrep', 'buildSite', 'buildWidget']);
   grunt.registerTask('deploy', ['buildPrep', 'buildSite', 'buildWidget', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-dogescript');
+  grunt.loadNpmTasks('grunt-rewrite');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
