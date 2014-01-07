@@ -8,6 +8,7 @@
     var script_tag = document.createElement('script');
     script_tag.setAttribute("type","text/javascript");
     script_tag.setAttribute("src", "https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js");
+
     if (script_tag.readyState) {
       script_tag.onreadystatechange = function () { // For old versions of IE
         if (this.readyState == 'complete' || this.readyState == 'loaded') {
@@ -19,11 +20,11 @@
     }
     // Try to find the head, otherwise default to the documentElement
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
-    } else {
-      // The jQuery version on the window is the one we want to use
-      jQuery = window.jQuery;
-      main();
-    };
+  } else {
+    // The jQuery version on the window is the one we want to use
+    jQuery = window.jQuery;
+    main();
+  };
 
   // called once jQuery loaded
   function scriptLoadHandler() {
@@ -39,12 +40,11 @@
     jQuery(document).ready(function($) {
       // load css
       var css_link = $("<link>", {
-          rel: "stylesheet",
-          type: "text/css",
-          href: "style.css"
+        rel: "stylesheet",
+        type: "text/css",
+        href: "style.css"
       });
       css_link.appendTo('head');
-
 
       // overlay while data is loading
       $("#wow-such-widget").html('<div id="wow-such-widget-overlay"></div><div id="wow-such-widget-lower-bar"></div>');
@@ -57,10 +57,9 @@
         $.getJSON(dogeApiUrl, function(data){
           var data = data.return.markets.DOGE.lasttradeprice;
           $("#wow-such-widget-overlay").remove();
-          $('#wow-such-widget').html('<div id="wow-such-widget-inner">1 DOGE = <span id="wow-such-widget-inner-price"></span> BTC</div><div id="wow-such-widget-credit">Powered by <a href="http://wowsuch.io" target="_blank">wowsuch.io</a></div><div id="wow-such-widget-lower-bar"></div>');
+          $('#wow-such-widget').html('<div id="wow-such-widget-inner">1 DOGE = <span id="wow-such-widget-inner-price"></span> BTC</div><div id="wow-such-widget-credit">Powered by <a href="http://wowsuch.io/?utm_source='+ document.URL +'&utm_medium=widget&utm_campaign=wowsuchwidget" target="_blank">wowsuch.io</a></div><div id="wow-such-widget-lower-bar"></div>');
 
             if(data !== previousValue && previousValue) {
-
               $("#wow-such-widget-inner-price").addClass('wow-such-widget-animate');
               setTimeout(function(){
                 $("#wow-such-widget-inner-price").removeClass('wow-such-widget-animate');
@@ -74,8 +73,7 @@
 
       // call poll function initially and periodically
       poll();
-      setInterval(poll, 5000);
+      setInterval(poll, 10000);
     });
   }
-
 })();
