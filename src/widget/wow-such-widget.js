@@ -42,7 +42,7 @@
       var css_link = $("<link>", {
         rel: "stylesheet",
         type: "text/css",
-        href: "style.css"
+        href: "wow-such-widget.css"
       });
       css_link.appendTo('head');
 
