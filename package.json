@@ -1,9 +1,8 @@
 {
-  "name": "Wow Such",
+  "name": "wowsuch",
   "version": "0.3.0",
   "author": "Chris Wheatley",
   "description": "A Dogecoin price calculator",
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/swirlycheetah/wowsuch.git"
@@ -19,7 +18,8 @@
     "grunt-contrib-concat": "~0.3.0",
     "grunt-rev": "~0.1.0",
     "grunt-usemin": "~2.0.2",
-    "grunt-contrib-watch": "~0.5.3"
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-rewrite": "~1.0.1"
   },
-  "license": "MIT",
+  "license": "MIT"
 }

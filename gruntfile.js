@@ -33,6 +33,15 @@ module.exports = function(grunt) {
       }
     },
 
+    rewrite: {
+      link: {
+        src: ['build/**/*.html', 'build/widget/**/*.js'],
+        editor: function(contents, filePath) {
+          return contents.replace('widget/wow-such-widget', 'http://wowsuch.io/widget/wow-such-widget');
+        }
+      }
+    },
+
     useminPrepare: {
       options: {
         dest: 'build'
@@ -47,7 +56,7 @@ module.exports = function(grunt) {
     uglify: {
       widget: {
         files: {
-          'build/widget/wow-such-widget.min.js': 'src/widget/wow-such-widget.js'
+          'build/widget/wow-such-widget.js': 'src/widget/wow-such-widget.js'
         }
       }
     },
@@ -55,27 +64,21 @@ module.exports = function(grunt) {
     cssmin: {
       widget: {
         files: {
-          'build/widget/wow-such-widget.min.css': 'src/widget/wow-such-widget.css'
+          'build/widget/wow-such-widget.css': 'src/widget/wow-such-widget.css'
         }
       }
     },
 
     rev: {
-      options: {
-        encoding: 'utf8',
-        algorithm: 'md5',
-        length: 8
-      },
       site: {
+        options: {
+          encoding: 'utf8',
+          algorithm: 'md5',
+          length: 8
+        },
         files: {
           src: ['build/doge.min.{js,css,png,jpg}']
         }
-      },
-      widget: {
-        files: {
-          src: ['build/widget/wow-such-widget.min.{js,css,png,jpg}']
-        }
-
       }
     },
 
@@ -88,13 +91,16 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('buildSite', ['shell:clean', 'shell:build', 'dogescript:build', 'useminPrepare', 'concat', 'uglify:generated', 'cssmin:generated', 'rev:site', 'usemin']);
-  grunt.registerTask('buildWidget', ['shell:clean', 'shell:build', 'uglify:widget', 'cssmin:widget', 'rev:widget']);
-  grunt.registerTask('deploy', ['buildSite', 'buildWidget', 'gh-pages']);
+  grunt.registerTask('buildPrep', ['shell:clean', 'shell:build'])
+  grunt.registerTask('buildSite', ['dogescript:build', 'useminPrepare', 'concat', 'uglify:generated', 'cssmin:generated', 'rev:site', 'usemin']);
+  grunt.registerTask('buildWidget', ['uglify:widget', 'cssmin:widget', 'rewrite']);
+  grunt.registerTask('build', ['buildPrep', 'buildSite', 'buildWidget']);
+  grunt.registerTask('deploy', ['buildPrep', 'buildSite', 'buildWidget', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-dogescript');
+  grunt.loadNpmTasks('grunt-rewrite');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');

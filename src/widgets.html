@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wowSuch" ng-controller="dogeController" ng-cloak>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="http://wowsuch.io" />
+  <!-- build:css doge.min.css -->
+  <link rel="stylesheet" href="foundation.min.css" />
+  <link rel="stylesheet" href="so.css" />
+  <!-- endbuild -->
+  <!-- build:js doge.min.js -->
+  <script src="angular.min.js"></script>
+  <script src="such.js"></script>
+  <script src="very.js"></script>
+  <!-- endbuild -->
+  <title ng-if="singleDogecoinPriceInBTC" ng-bind="singleDogecoinPriceInBTC + ' - Dogecoin Price Calculator - Wow Such'">Dogecoin Price Calculator - Compare Dogecoin value to Bitcoin and USD - Wow Such</title>
+  <meta name="description" content="Live Dogecoin price calculator. Compare Dogecoin value to Bitcoin and USD in real time. Get the Dogecoin exchange rate instantly. DOGE/BTC/USD market.">
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="so-centered small-10 small-centered columns">
+      <h1>Wow Such</h1>
+    </div>
+    <div class="so-centered small-12 small-centered columns">
+      <h1><small>Dogecoin Price Calculator</small></h1>
+    </div>
+  </div>
+
+  <div class="row very-row">
+
+    <div class="small-12 small-centered columns">
+      <h3 class="so-centered">Default</h3>
+    </div>
+    <div class="small-12 small-centered columns">
+      <div class="widget-embed">
+        <div class="wow-such-widget"></div>
+      </div>
+    </div>
+    <div class="above small-12 columns">
+      <script src="https://gist.github.com/swirlycheetah/8342435.js"></script>
+    </div>
+
+    <div class="so-centered small-12 small-centered columns">
+      <h3>Purple with light text</h3>
+    </div>
+    <div class="small-12 small-centered columns">
+      <div class="widget-embed">
+        <div class="wow-such-widget" style="
+          background-color:#9b59b6;
+          color:#eaeaea;
+        "></div>
+      </div>
+    </div>
+    <div class="above small-12 columns">
+      <script src="https://gist.github.com/swirlycheetah/8342466.js"></script>
+    </div>
+
+
+  </div>
+
+  <div class="row very-row">
+    <div class="small-6 columns so-tweets">
+      <a href="https://twitter.com/swirlycheetah" target="_blank">Twitter</a>
+    </div>
+
+    <div class="small-6 columns">
+        <a href="https://github.com/swirlycheetah/wowsuch" target="_blank">Github</a>
+    </div>
+  </div>
+
+  <div class="row very-row">
+    <div class="so-centered small-12 small-centered columns">
+      <h4>Donate: DQ3isvKeGUPjz1V44wXUxQdr9pAKd96df9</h4>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="widget/wow-such-widget.js"></script>
+
+</body>
+
+</html>
