@@ -6,4 +6,10 @@
       <changefreq>always</changefreq>
       <priority>1</priority>
    </url>
+   <url>
+      <loc>http://wowsuch.io/widgets</loc>
+      <lastmod>2014-10-01</lastmod>
+      <changefreq>always</changefreq>
+      <priority>0.8</priority>
+   </url>
 </urlset>
