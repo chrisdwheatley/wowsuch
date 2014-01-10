@@ -34,9 +34,6 @@ input.much-input {
 .above {
   z-index:1;
 }
-.gist-meta {
-  display:none;
-}
 .gist .gist-file .gist-data {
   border-bottom:0px;
 }
