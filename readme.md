@@ -26,6 +26,12 @@ Use [this tool][3] for writing/editing dogescript.
 
 ### Changelog
 
+#### v0.4.0
+##### 10/01/2014
+
+* Embeddable widgets
+* Embeddable widgets example page
+
 #### v0.3.0
 ##### 31/12/2013
 
