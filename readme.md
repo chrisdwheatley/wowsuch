@@ -26,6 +26,13 @@ Use [this tool][3] for writing/editing dogescript.
 
 ### Changelog
 
+#### v0.4.1
+##### 10/01/2014
+
+* Navigation tweaks
+* Sitemap amendments
+* Roadmap tweaks
+
 #### v0.4.0
 ##### 10/01/2014
 
@@ -50,9 +57,9 @@ Use [this tool][3] for writing/editing dogescript.
 
 ### Roadmap
 
-* Widgets
-* Tests
+* More reliable data
 * Pull data from more than one source
+* Tests
 * Other currencies comparison
 
 ### License
