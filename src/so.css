@@ -10,7 +10,7 @@ body {
   background-position-y:135px;
 }
 .very-row {
-  margin-top: 3em;
+  margin-top: 2em;
 }
 input.much-input {
   width:66%;
@@ -23,6 +23,14 @@ input.much-input {
 }
 .very-value, .so-tweets {
   text-align: right;
+}
+.on {
+  font-weight:bold;
+}
+.equals {
+  font-size:2em;
+  font-weight:700;
+  line-height:.05;
 }
 .widget-embed {
   width:300px;
