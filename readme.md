@@ -26,6 +26,12 @@ Use [this tool][3] for writing/editing dogescript.
 
 ### Changelog
 
+#### v0.4.2
+##### 11/01/2014
+
+* Added navigation to homepage
+* Various style amendments
+
 #### v0.4.1
 ##### 10/01/2014
 
