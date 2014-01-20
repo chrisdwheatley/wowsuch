@@ -10,6 +10,8 @@ plz angular.module with 'wowSuch'&
 
   dogeData dose success with much data
 
+    console.log(data);
+
     $scope.numberOfBTCInput is $scope.singleDogecoinPriceInBTC is data.return.markets.DOGE.lasttradeprice;
 
     $scope.amendDogecoinInput is such amendDogecoinInput much numberOfDogecoinInput
@@ -44,7 +46,7 @@ wow
 
 plz angular.module with 'wowSuch'&
   dose factory with 'dogeData', ['$http' much $http
-    very dogeUrl is 'https://lit-beach-8985.herokuapp.com/?callback=soCallback&url=http%3A%2F%2Fpubapi.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132&callback=JSON_CALLBACK'
+    very dogeUrl is 'https://cryptocurrencies.firebaseio.com/'
     wow $http.jsonp(dogeUrl)
 ]);
 
