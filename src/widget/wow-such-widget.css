@@ -8,6 +8,7 @@
   color:#333;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  font-size:22px;
   line-height: 1.3;
 }
 .wow-such-widget a{
@@ -22,7 +23,6 @@
 .wow-such-widget-inner{
   height:46px;
   font-weight:700;
-  font-size:22px;
 }
 .wow-such-widget-credit{
   float:right;
