@@ -26,6 +26,12 @@ Use [this tool][3] for writing/editing dogescript.
 
 ### Changelog
 
+#### v0.4.3
+##### 22/01/2014
+
+* Amended data source for DOGE to BTC price
+* Style amendment for widget to allow font size changes
+
 #### v0.4.2
 ##### 11/01/2014
 
@@ -63,8 +69,8 @@ Use [this tool][3] for writing/editing dogescript.
 
 ### Roadmap
 
-* More reliable data
 * Pull data from more than one source
+* Graphs
 * Tests
 * Other currencies comparison
 
