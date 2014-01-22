@@ -49,13 +49,12 @@
       // widget boilerplate until data loads
       $(".wow-such-widget").html('<div class="wow-such-widget-overlay"></div><div class="wow-such-widget-lower-bar"></div>');
 
-      var dogeApiUrl = 'https://lit-beach-8985.herokuapp.com/?callback=?&url=http%3A%2F%2Fpubapi.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132';
+      var dogeApiUrl = 'https://lit-beach-8985.herokuapp.com/?callback=?&url=https://www.coins-e.com/api/v2/market/DOGE_BTC/depth';
 
       // poll api for data and display contents of widget on retrieval, flash on price change
       function poll(){
         $.getJSON(dogeApiUrl, function(data){
-          var data = data.return.markets.DOGE.lasttradeprice;
-          // $(".wow-such-widget-overlay").remove();
+          var data = data.ltp;
           $('.wow-such-widget').html('<div class="wow-such-widget-inner">1 DOGE = <span class="wow-such-widget-inner-price"></span> BTC</div><div class="wow-such-widget-credit">Powered by <a href="http://wowsuch.io/?utm_source='+ document.URL +'&utm_medium=widget&utm_campaign=wowsuchwidget" target="_blank">wowsuch.io</a></div><div class="wow-such-widget-lower-bar"></div>');
 
             if(data !== previousValue && previousValue) {

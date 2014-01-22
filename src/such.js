@@ -11,8 +11,7 @@ angular.module('wowSuch')
 
             dogeData.success(function(data) {
 
-                $scope.numberOfBTCInput = $scope.singleDogecoinPriceInBTC = data.
-                return .markets.DOGE.lasttradeprice;
+                $scope.numberOfBTCInput = $scope.singleDogecoinPriceInBTC = data.ltp;
 
                 $scope.amendDogecoinInput = function amendDogecoinInput(numberOfDogecoinInput) {
                     if (numberOfDogecoinInput === "1") {
@@ -48,7 +47,7 @@ angular.module('wowSuch')
 angular.module('wowSuch')
     .factory('dogeData', ['$http',
         function($http) {
-            var dogeUrl = 'https://lit-beach-8985.herokuapp.com/?callback=soCallback&url=http%3A%2F%2Fpubapi.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132&callback=JSON_CALLBACK';
+            var dogeUrl = 'https://lit-beach-8985.herokuapp.com/?callback=soCallback&url=https://www.coins-e.com/api/v2/market/DOGE_BTC/depth&callback=JSON_CALLBACK';
             return $http.jsonp(dogeUrl);
         }
     ]);
