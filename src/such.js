@@ -29,10 +29,8 @@ angular.module('wowSuch')
                 }
 
                 usdData.success(function(data) {
-                    $scope.singleBTCPriceInUSD = data.
-                    return .buy.value;
-                    $scope.numberOfUSDInput = data.
-                    return .buy.value * $scope.numberOfBTCInput;
+                    $scope.singleBTCPriceInUSD = data.USD.averages.last;
+                    $scope.numberOfUSDInput = data.USD.averages.last * $scope.numberOfBTCInput;
 
                     $scope.amendUSDInput = function amendUSDInput(numberOfUSDInput) {
                         $scope.numberOfDogecoinInput = (numberOfUSDInput / $scope.singleDogecoinPriceInBTC) / $scope.singleBTCPriceInUSD;
@@ -55,8 +53,8 @@ angular.module('wowSuch')
 angular.module('wowSuch')
     .factory('usdData', ['$http',
         function($http) {
-            var dataUrl = 'https://lit-beach-8985.herokuapp.com/?callback=soCallback&url=http://data.mtgox.com/api/1/BTCUSD/ticker_fast&callback=JSON_CALLBACK';
-            return $http.jsonp(dataUrl);
+            var dataUrl = 'https://api.bitcoinaverage.com/all';
+            return $http.get(dataUrl);
         }
     ]);
 
