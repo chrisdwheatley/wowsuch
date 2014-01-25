@@ -92,7 +92,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('buildPrep', ['shell:clean', 'shell:build'])
-  grunt.registerTask('buildSite', ['dogescript:build', 'useminPrepare', 'concat', 'uglify:generated', 'cssmin:generated', 'rev:site', 'usemin']);
+  grunt.registerTask('buildSite', ['useminPrepare', 'concat', 'uglify:generated', 'cssmin:generated', 'rev:site', 'usemin']);
   grunt.registerTask('buildWidget', ['uglify:widget', 'cssmin:widget', 'rewrite']);
   grunt.registerTask('build', ['buildPrep', 'buildSite', 'buildWidget']);
   grunt.registerTask('deploy', ['buildPrep', 'buildSite', 'buildWidget', 'gh-pages']);
