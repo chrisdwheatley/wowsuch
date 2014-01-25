@@ -1,12 +1,12 @@
-// such.js is generated from such.djs 
+// such.js is generated from such.djs
 
 "use strict";
 
 angular.module('wowSuch', []);
 
 angular.module('wowSuch')
-    .controller('dogeController', ['$scope', 'dogeData', 'usdData',
-        function($scope, dogeData, usdData) {
+    .controller('dogeController', ['$scope', 'dogeData', 'fiatData',
+        function($scope, dogeData, fiatData) {
             $scope.numberOfDogecoinInput = 1;
 
             dogeData.success(function(data) {
@@ -20,21 +20,36 @@ angular.module('wowSuch')
                         $scope.numberOfBTCInput = numberOfDogecoinInput * $scope.singleDogecoinPriceInBTC;
                     }
 
-                    $scope.numberOfUSDInput = (numberOfDogecoinInput * $scope.singleDogecoinPriceInBTC) * $scope.singleBTCPriceInUSD;
+                    $scope.numberOfFIATInput = (numberOfDogecoinInput * $scope.singleDogecoinPriceInBTC) * $scope.singleBTCPriceInFIAT;
                 }
 
                 $scope.amendBTCInput = function amendBTCInput(numberOfBTCInput) {
                     $scope.numberOfDogecoinInput = numberOfBTCInput / $scope.singleDogecoinPriceInBTC;
-                    $scope.numberOfUSDInput = numberOfBTCInput * $scope.singleBTCPriceInUSD;
+                    $scope.numberOfFIATInput = numberOfBTCInput * $scope.singleBTCPriceInFIAT;
                 }
 
-                usdData.success(function(data) {
-                    $scope.singleBTCPriceInUSD = data.USD.averages.last;
-                    $scope.numberOfUSDInput = data.USD.averages.last * $scope.numberOfBTCInput;
+                fiatData.success(function(data) {
 
-                    $scope.amendUSDInput = function amendUSDInput(numberOfUSDInput) {
-                        $scope.numberOfDogecoinInput = (numberOfUSDInput / $scope.singleDogecoinPriceInBTC) / $scope.singleBTCPriceInUSD;
-                        $scope.numberOfBTCInput = numberOfUSDInput / $scope.singleBTCPriceInUSD;
+                    $scope.currencies = [];
+                    for (var property in data) {
+                      if(!(property == 'ignored_exchanges' || property == 'timestamp')) {
+                        $scope.currencies.push({name:property});
+                      }
+                    }
+
+                    $scope.selectedCurrency = $scope.currencies[16];
+
+                    $scope.singleBTCPriceInFIAT = data.USD.averages.last;
+                    $scope.numberOfFIATInput = data.USD.averages.last * $scope.numberOfBTCInput;
+
+                    $scope.changeCurrency = function changeCurrency(curr) {
+                        $scope.singleBTCPriceInFIAT = data[curr].averages.last;
+                        $scope.numberOfFIATInput = data[curr].averages.last * $scope.numberOfBTCInput;
+                    }
+
+                    $scope.amendFIATInput = function amendFIATInput(numberOfFIATInput) {
+                        $scope.numberOfDogecoinInput = (numberOfFIATInput / $scope.singleDogecoinPriceInBTC) / $scope.singleBTCPriceInFIAT;
+                        $scope.numberOfBTCInput = numberOfFIATInput / $scope.singleBTCPriceInFIAT;
                     }
                 });
 
@@ -51,7 +66,7 @@ angular.module('wowSuch')
     ]);
 
 angular.module('wowSuch')
-    .factory('usdData', ['$http',
+    .factory('fiatData', ['$http',
         function($http) {
             var dataUrl = 'https://api.bitcoinaverage.com/all';
             return $http.get(dataUrl);
