@@ -18,8 +18,20 @@ input.much-input {
   max-width:175px;
   float:right;
 }
+select.much-input {
+  width:66%;
+  min-width:70px;
+  max-width:175px;
+  margin-top:3px;
+}
+.nav-item {
+  margin: 0 .8em 0 .8em;
+}
 .so-centered {
   text-align: center;
+}
+.such-left {
+  float:left!important;
 }
 .very-value, .so-tweets {
   text-align: right;
