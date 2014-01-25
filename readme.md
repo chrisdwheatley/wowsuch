@@ -1,6 +1,6 @@
-# Wow Such
+# [Wow Such][1]
 
-A Dogecoin price calculator, written in [dogescript][1] - [wowsuch.io][2].
+Dogecoin price calculator.
 
 ### Development
 
@@ -12,19 +12,18 @@ Install the required development modules:
 
 `$ npm install`
 
-The main application logic can be found in `src/such.djs` / `src/such.js`.
-
-If you're feeling brave and want to write some dogescript run `grunt watch` and edit `src/such.djs`, which will compile to javascript on save. Otherwise feel free to edit `src/such.js` and I'll pick up the dogescript side of things on pull request.
+The main application logic can be found in `src/such.js`.
 
 Run `grunt build` to test the project builds without fail, the built project will be in the `build` folder.
 
-### Caveats
-
-The project is currently in it's very early stages and is therefore likely to change significantly as features are added and issues raised.
-
-Use [this tool][3] for writing/editing dogescript.
-
 ### Changelog
+
+#### v0.5.0
+##### 25/01/2014
+
+* Added other FIAT currency conversion
+* Amended data source for FIAT currencies
+* Navigation style amendments
 
 #### v0.4.3
 ##### 22/01/2014
@@ -69,16 +68,13 @@ Use [this tool][3] for writing/editing dogescript.
 
 ### Roadmap
 
+* Market cap graphs
 * Pull data from more than one source
-* Graphs
 * Tests
-* Other currencies comparison
 
 ### License
 
-Released under the MIT license: [opensource.org/licenses/MIT][4]
+Released under the MIT license: [opensource.org/licenses/MIT][2]
 
-  [1]: https://github.com/remixz/dogescript
-  [2]: http://wowsuch.io
-  [3]: http://zachbruggeman.me/dogescript/
-  [4]: http://opensource.org/licenses/MIT
+  [1]: http://wowsuch.io
+  [2]: http://opensource.org/licenses/MIT
