@@ -21,19 +21,17 @@ angular.module('wowSuch')
                     }
 
                     $scope.numberOfFIATInput = (numberOfDogecoinInput * $scope.singleDogecoinPriceInBTC) * $scope.singleBTCPriceInFIAT;
-                    window.localStorage['lastAmended'] = 'doge';
-                    window.localStorage['lastQuantity'] = numberOfDogecoinInput;
+                    window.localStorage['lastDogeInput'] = numberOfDogecoinInput;
 
                 }
 
                 $scope.amendBTCInput = function amendBTCInput(numberOfBTCInput) {
-                    $scope.numberOfDogecoinInput = numberOfBTCInput / $scope.singleDogecoinPriceInBTC;
+                    $scope.numberOfDogecoinInput = window.localStorage['lastDogeInput'] = numberOfBTCInput / $scope.singleDogecoinPriceInBTC;
                     $scope.numberOfFIATInput = numberOfBTCInput * $scope.singleBTCPriceInFIAT;
-                    window.localStorage['lastAmended'] = 'btc';
-                    window.localStorage['lastQuantity'] = numberOfBTCInput;
                 }
 
                 fiatData.success(function(data) {
+                    
                     $scope.selectedCurrencyIndex = undefined;
                     $scope.currencies = [];
 
@@ -42,57 +40,47 @@ angular.module('wowSuch')
                     for (var property in data) {
                       if(!(property == 'ignored_exchanges' || property == 'timestamp')) {
                         $scope.currencies.push({name:property});
-                        if(property===window.localStorage['lastAmended']){
+                        if(property===window.localStorage['lastFiat']){
                             $scope.selectedCurrencyIndex = i;
                         }
                         i++;
                       }
                     }
-                    
 
+                    $scope.selectedCurrency = $scope.currencies[16];
+                    
                     $scope.singleBTCPriceInFIAT = data.USD.averages.last;
 
                     $scope.changeCurrency = function changeCurrency(curr) {
                         $scope.singleBTCPriceInFIAT = data[curr].averages.last;
                         $scope.numberOfFIATInput = data[curr].averages.last * $scope.numberOfBTCInput;
-                        window.localStorage['lastAmended'] = $scope.selectedCurrency.name;
-
-                        window.localStorage['lastQuantity'] = $scope.numberOfFIATInput;
+                        window.localStorage['lastFiat'] = $scope.selectedCurrency.name;
                     }
 
                     $scope.amendFIATInput = function amendFIATInput(numberOfFIATInput) {
-                        $scope.numberOfDogecoinInput = (numberOfFIATInput / $scope.singleDogecoinPriceInBTC) / $scope.singleBTCPriceInFIAT;
+                        $scope.numberOfDogecoinInput = window.localStorage['lastDogeInput'] = (numberOfFIATInput / $scope.singleDogecoinPriceInBTC) / $scope.singleBTCPriceInFIAT;
                         $scope.numberOfBTCInput = numberOfFIATInput / $scope.singleBTCPriceInFIAT;
-                        window.localStorage['lastAmended'] = $scope.selectedCurrency.name;
-                        window.localStorage['lastQuantity'] = numberOfFIATInput;
                     }
 
-                    // Load settings if Fiat is selected
-                    if(window.localStorage['lastAmended'] !== 'doge' && window.localStorage['lastAmended'] !== 'btc' && window.localStorage['lastAmended'] !== undefined) {
+                    // Check for previous values
+                    if(window.localStorage['lastDogeInput'] !== undefined){
+                        // Previous fiat currency detected
                         $scope.selectedCurrency = $scope.currencies[$scope.selectedCurrencyIndex];
-                        $scope.numberOfFIATInput = window.localStorage['lastQuantity'];
-                        $scope.amendFIATInput(window.localStorage['lastQuantity']);
-                    } else { // We don't do much here, look to below loop for more
+                    } else {
+                        // New user
                         $scope.selectedCurrency = $scope.currencies[16];
-                        $scope.numberOfFIATInput = data.USD.averages.last * $scope.numberOfBTCInput;
+                    }
+                    if(window.localStorage['lastDogeInput'] !== undefined) {
+                        // Previous doge input detected
+                        $scope.numberOfDogecoinInput = window.localStorage['lastDogeInput'];
+                        $scope.amendDogecoinInput(window.localStorage['lastDogeInput']);
+                    } else {
+                        // A new user
+                        $scope.amendDogecoinInput($scope.numberOfDogecoinInput);
                     }
                 });
-
-                if(window.localStorage['lastAmended'] === 'doge') {
-                    // DOGE
-                    $scope.numberOfDogecoinInput = window.localStorage['lastQuantity'];
-                    $scope.amendDogecoinInput(window.localStorage['lastQuantity']);
-                } else if(window.localStorage['lastAmended'] === 'btc') {
-                    // BTC
-                    $scope.numberOfBTCInput = window.localStorage['lastQuantity'];
-                    $scope.amendBTCInput(window.localStorage['lastQuantity']);
-                } else if(window.localStorage['lastAmended'] === undefined) {
-                    // New user
-                    $scope.numberOfDogecoinInput = 1 ;
-                } else {
-                    // Assume Fiat
-                    // Do nothing in this loop, check above loop intead
-                }
+                // If all fails, use 1
+                $scope.numberOfDogecoinInput = 1;
 
             });
         }
