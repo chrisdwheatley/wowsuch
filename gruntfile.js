@@ -24,15 +24,6 @@ module.exports = function(grunt) {
       },
     },
 
-    dogescript: {
-      build: {
-        src: ['build/such.djs']
-      },
-      dev: {
-        src: ['src/such.djs']
-      }
-    },
-
     rewrite: {
       link: {
         src: ['build/**/*.html', 'build/widget/**/*.js'],
@@ -99,7 +90,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-dogescript');
   grunt.loadNpmTasks('grunt-rewrite');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
