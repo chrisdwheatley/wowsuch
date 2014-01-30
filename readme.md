@@ -18,6 +18,12 @@ Run `grunt build` to test the project builds without fail, the built project wil
 
 ### Changelog
 
+#### v0.5.1
+##### 30/01/2014
+
+* Store last entered Dogecoin amount in local storage
+* Store selected FIAT currency in local storage
+
 #### v0.5.0
 ##### 25/01/2014
 
