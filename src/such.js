@@ -8,7 +8,7 @@ angular.module('wowSuch')
     .controller('dogeController', ['$scope', 'dogeData', 'fiatData',
         function($scope, dogeData, fiatData) {
 
-            dogeData.success(function(data) {    
+            dogeData.success(function(data) {
 
                 $scope.singleDogecoinPriceInBTC = data.ltp;
 
@@ -31,7 +31,7 @@ angular.module('wowSuch')
                 }
 
                 fiatData.success(function(data) {
-                    
+
                     $scope.selectedCurrencyIndex = undefined;
                     $scope.currencies = [];
 
@@ -63,11 +63,12 @@ angular.module('wowSuch')
                     }
 
                     // Check for previous values
-                    if(window.localStorage['lastDogeInput'] !== undefined){
+                    if(window.localStorage['lastFiat'] !== undefined){
                         // Previous fiat currency detected
                         $scope.selectedCurrency = $scope.currencies[$scope.selectedCurrencyIndex];
                     } else {
                         // New user
+                        $scope.numberOfDogecoinInput = 1;
                         $scope.selectedCurrency = $scope.currencies[16];
                     }
                     if(window.localStorage['lastDogeInput'] !== undefined) {
@@ -78,10 +79,10 @@ angular.module('wowSuch')
                         // A new user
                         $scope.amendDogecoinInput($scope.numberOfDogecoinInput);
                     }
+                }).error(function(){
+                    // If all fails, use 1
+                    $scope.numberOfDogecoinInput = 1;
                 });
-                // If all fails, use 1
-                $scope.numberOfDogecoinInput = 1;
-
             });
         }
     ]);
