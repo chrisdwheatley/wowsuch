@@ -1,7 +1,0 @@
-node_modules
-build
-.tmp
-.grunt
-*.sublime-project
-*.sublime-workspace
-todo.txt
