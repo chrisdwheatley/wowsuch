@@ -61,7 +61,7 @@ angular.module('wowSuch').controller('dogeController', ['$scope','dogeData','fia
       } else {
         // New user, default to USD
         $scope.numberOfDogecoinInput = 1;
-        $scope.selectedCurrency = $scope.currencies[17];
+        $scope.selectedCurrency = $scope.currencies[18];
       }
 
        // Check for previous entered dogecoin amount from local storage
