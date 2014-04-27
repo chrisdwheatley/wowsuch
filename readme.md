@@ -18,6 +18,12 @@ Run `grunt build` to test the project builds without fail, the built project wil
 
 ### Changelog
 
+#### v0.6.0
+##### 27/04/2014
+
+* Navigation amendments
+* Opening paragraph explaining website
+
 #### v0.5.1
 ##### 30/01/2014
 
