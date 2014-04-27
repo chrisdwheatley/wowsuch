@@ -18,21 +18,25 @@
 
   <div class="row">
     <div class="so-centered small-12 small-centered columns">
-      <h1>Wow Such</h1>
-      <h2>Dogecoin Price Calculator</h2>
+      <h1>Dogecoin Price Calculator</h1>
     </div>
   </div>
 
   <div class="row">
     <div class="so-centered small-12 columns small-centered">
-      <a class="nav-item on" href="http://wowsuch.io">Home</a>
+      <a class="nav-item on" href="http://wowsuch.io">Calculator</a>
       <a class="nav-item" href="http://wowsuch.io/widgets">Widgets</a>
-      <a class="nav-item" href="https://github.com/swirlycheetah/wowsuch" target="_blank">Github</a>
-      <a class="nav-item" href="https://twitter.com/swirlycheetah" target="_blank">Twitter</a>
     </div>
   </div>
 
   <div class="row very-row">
+    <div class="so-centered small-12 small-centered columns">
+      <p><a href="http://dogecoin.com/" target="_blank">Dogecoin</a> is a digital currency similar to <a href="https://bitcoin.org/" target="_blank">Bitcoin</a> but based upon the doge internet meme.</p>
+      <p>Use the boxes below to enter values and receive instant conversion rates to and from Dogecoin, Bitcoin and <a href="https://en.wikipedia.org/wiki/Fiat_money" target="_blank">FIAT currencies</a>.</p>
+    </div>
+  </div>
+
+  <div class="row">
 
     <div class="small-6 columns">
       <h3><input class="much-input" ng-model="numberOfDogecoinInput" ng-change="amendDogecoinInput(numberOfDogecoinInput)" type="tel" placeholder="DOGE" autofocus /></h3>
@@ -76,11 +80,18 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row very-row">
+    <div class="so-centered small-12 columns small-centered">
+      <a class="nav-item" href="https://github.com/swirlycheetah/wowsuch" target="_blank">Github</a>
+      <a class="nav-item" href="https://twitter.com/swirlycheetah" target="_blank">Twitter</a>
+    </div>
+  </div>
+
+  <div class="row very-row">
     <div class="so-centered small-12 small-centered columns">
       <h6>Donate: DQ3isvKeGUPjz1V44wXUxQdr9pAKd96df9</h6>
     </div>
-  </div>
+  </div>  
 
   <!-- build:js doge.min.js -->
   <script src="angular.min.js"></script>
